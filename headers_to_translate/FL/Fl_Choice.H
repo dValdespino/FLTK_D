@@ -112,11 +112,11 @@ public:
     Gets the index of the last item chosen by the user.
     The index is -1 initially.
    */
-  int value() const override {return Fl_Menu_::value();}
+  // int value() const override {return Fl_Menu_::value();}
 
-  int value(int v) override ;
+  // int value(int v) override ;
 
-  int value(const Fl_Menu_Item* v)override ;
+  // int value(const Fl_Menu_Item* v)override ;
 };
 
 #endif

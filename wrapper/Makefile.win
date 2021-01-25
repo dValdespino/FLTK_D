@@ -1,0 +1,18 @@
+EXTRAWIDGETS=/Shine/Libs/FLTKExtraWidgets/src/Widgets.cpp -I/Shine/Libs/FLTKExtraWidgets/include/
+
+INCLUDES=-I/Shine/Libs/FLTKExtraWidgets/include/
+
+SOURCES=fltk_d_wrap.cxx
+
+LIBS=./win/libfltk.dll\
+		/usr/i686-w64-mingw32/lib/libwinpthread.a\
+		-lole32\
+		-lgdi32\
+		-luuid\
+		-lcomctl32\
+		-lcomdlg32\
+		-lws2_32
+
+all:
+# 	swig -c++ -d -d2 fltk_d.i
+	i686-w64-mingw32-g++ -static-libgcc -static-libstdc++ -D_WINDOWS_ ${SOURCES} -fPIC ${EXTRAWIDGETS} ${INCLUDES} ${LIBS} -shared -o libfltk_d_wrap.dll -Wl,--out-implib,libfltk_d_wrap.dll.lib -Wl,--output-def,libfltk_d_wrap.def

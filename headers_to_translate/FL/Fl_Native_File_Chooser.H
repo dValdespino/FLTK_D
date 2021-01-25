@@ -117,8 +117,8 @@ class Fl_Native_File_Chooser_Driver;
 
  */
 class Fl_Native_File_Chooser {
-private:
-  Fl_Native_File_Chooser_Driver* platform_fnfc;
+// private:
+  // Fl_Native_File_Chooser_Driver* platform_fnfc;
 public:
   enum Type {
     BROWSE_FILE = 0,                    ///< browse files (lets user choose one file)
@@ -178,95 +178,66 @@ public:
  of this class. Each platform supported by FLTK must also implement the constructor of the
  Fl_Native_File_Chooser class.
  */
-class Fl_Native_File_Chooser_Driver {
-protected:
-  static void chrcat(char* s, char c);
-  static char* strapp(char* s, const char* val);
-  static char* strfree(char* val);
-  static char* strnew(const char* val);
-public:
-  Fl_Native_File_Chooser_Driver(int val) {}
-  virtual ~Fl_Native_File_Chooser_Driver() {}
-  virtual void type(int t) {}
-  virtual int type() const  {return 0;}
-  virtual void options(int o) {}
-  virtual int options() const {return 0;}
-  virtual int count() const {return 0;}
-  virtual const char* filename() const  {return 0;}
-  virtual const char* filename(int i) const  {return 0;}
-  virtual void directory(const char* val)  {}
-  virtual const char* directory() const {return 0;}
-  virtual void title(const char* t) {}
-  virtual const char* title() const {return 0;}
-  virtual const char* filter() const  {return 0;}
-  virtual void filter(const char* f) {}
-  virtual int filters() const  {return 0;}
-  virtual void filter_value(int i)  {}
-  virtual int filter_value() const  {return 0;}
-  virtual void preset_file(const char* f)  {}
-  virtual const char* preset_file() const {return 0;}
-  virtual const char* errmsg() const  {return 0;}
-  virtual int show()  {return 1;}
-};
 
-/** A cross-platform implementation of Fl_Native_File_Chooser_Driver.
- This implementation uses a Fl_File_Chooser object as file chooser.
 
- Any platform can support the Fl_Native_File_Chooser class by implementing
- its constructor as follows:
- \code
- Fl_Native_File_Chooser::Fl_Native_File_Chooser(int type) {
-   platform_fnfc = new Fl_Native_File_Chooser_FLTK_Driver(type);
- }
-\endcode
- */
-class Fl_Native_File_Chooser_FLTK_Driver : public Fl_Native_File_Chooser_Driver {
-private:
-  void errmsg(const char* msg);
-  int type_fl_file(int val);
-  int exist_dialog();
-  void parse_filter();
-protected:
-  int   _btype;                 // kind-of browser to show()
-  int   _options;               // general options
-  int   _nfilters;
-  char* _filter;                // user supplied filter
-  char* _parsedfilt;            // parsed filter
-  int   _filtvalue;             // selected filter
-  char* _preset_file;
-  char* _prevvalue;             // Returned filename
-  char* _directory;
-  char* _errmsg;                // error message
-  Fl_File_Chooser* _file_chooser;
-public:
-  Fl_Native_File_Chooser_FLTK_Driver(int val);
-  virtual ~Fl_Native_File_Chooser_FLTK_Driver();
-  virtual void type(int t);
-  virtual int type() const ;
-  virtual void options(int o);
-  virtual int options() const;
-  virtual int count() const;
-  virtual const char* filename() const ;
-  virtual const char* filename(int i) const ;
-  virtual void directory(const char* val) ;
-  virtual const char* directory() const;
-  virtual void title(const char* t);
-  virtual const char* title() const;
-  virtual const char* filter() const ;
-  virtual void filter(const char* f);
-  virtual int filters() const ;
-  virtual void filter_value(int i) ;
-  virtual int filter_value() const ;
-  virtual void preset_file(const char* f) ;
-  virtual const char* preset_file() const;
-  virtual const char* errmsg() const ;
-  virtual int show() ;
-};
+// /** A cross-platform implementation of Fl_Native_File_Chooser_Driver.
+//  This implementation uses a Fl_File_Chooser object as file chooser.
 
-/**
- \}
- \endcond
- */
+//  Any platform can support the Fl_Native_File_Chooser class by implementing
+//  its constructor as follows:
+//  \code
+//  Fl_Native_File_Chooser::Fl_Native_File_Chooser(int type) {
+//    platform_fnfc = new Fl_Native_File_Chooser_FLTK_Driver(type);
+//  }
+// \endcode
+//  */
+// class Fl_Native_File_Chooser_FLTK_Driver : public Fl_Native_File_Chooser_Driver {
+// private:
+//   void errmsg(const char* msg);
+//   int type_fl_file(int val);
+//   int exist_dialog();
+//   void parse_filter();
+// protected:
+//   int   _btype;                 // kind-of browser to show()
+//   int   _options;               // general options
+//   int   _nfilters;
+//   char* _filter;                // user supplied filter
+//   char* _parsedfilt;            // parsed filter
+//   int   _filtvalue;             // selected filter
+//   char* _preset_file;
+//   char* _prevvalue;             // Returned filename
+//   char* _directory;
+//   char* _errmsg;                // error message
+//   Fl_File_Chooser* _file_chooser;
+// public:
+//   Fl_Native_File_Chooser_FLTK_Driver(int val);
+//   virtual ~Fl_Native_File_Chooser_FLTK_Driver();
+//   virtual void type(int t);
+//   virtual int type() const ;
+//   virtual void options(int o);
+//   virtual int options() const;
+//   virtual int count() const;
+//   virtual const char* filename() const ;
+//   virtual const char* filename(int i) const ;
+//   virtual void directory(const char* val) ;
+//   virtual const char* directory() const;
+//   virtual void title(const char* t);
+//   virtual const char* title() const;
+//   virtual const char* filter() const ;
+//   virtual void filter(const char* f);
+//   virtual int filters() const ;
+//   virtual void filter_value(int i) ;
+//   virtual int filter_value() const ;
+//   virtual void preset_file(const char* f) ;
+//   virtual const char* preset_file() const;
+//   virtual const char* errmsg() const ;
+//   virtual int show() ;
+// };
+
+// /**
+//  \}
+//  \endcond
+//  */
 
 
 #endif /*FL_NATIVE_FILE_CHOOSER_H*/

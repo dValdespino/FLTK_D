@@ -23,11 +23,13 @@
 	#include <Fl/Fl_Text_Display.H>
 	#include <Fl/Fl_Text_Buffer.H>
 	#include <Fl/Fl_Text_Editor.H>
+	#include <Fl/Fl_Menu_Item.H>
 	#include <Fl/Fl_Menu_.H>
 	#include <Fl/Fl_Choice.H>
 	#include <Fl/Fl_Light_Button.H>
 	#include <Fl/Fl_Check_Button.H>
 	#include <Fl/Fl_Native_File_Chooser.H>
+	#include "/Shine/Libs/FLTKExtraWidgets/include/Widgets.h"
 %}
 
 %rename("%(strip:[Fl_])s") "";
@@ -54,8 +56,10 @@
 %include "../headers_to_translate/FL/Fl_Text_Display.H"
 %include "../headers_to_translate/FL/Fl_Text_Buffer.H"
 %include "../headers_to_translate/FL/Fl_Text_Editor.H"
+%include "../headers_to_translate/FL/Fl_Menu_Item.H"
 %include "../headers_to_translate/FL/Fl_Menu_.H"
 %include "../headers_to_translate/FL/Fl_Choice.H"
 %include "../headers_to_translate/FL/Fl_Light_Button.H"
 %include "../headers_to_translate/FL/Fl_Check_Button.H"
 %include "../headers_to_translate/FL/Fl_Native_File_Chooser.H"
+%include "/Shine/Libs/FLTKExtraWidgets/include/Widgets.h"

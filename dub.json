@@ -6,5 +6,6 @@
 	"description": "A minimal D application.",
 	"license": "proprietary",
 	"name": "fltk_swig",
-	"libs":["fltk","stdc++"]
+	"libs-linux":["fltk","stdc++"],
+	"libs-windows":["libfltk.dll"]
 }
